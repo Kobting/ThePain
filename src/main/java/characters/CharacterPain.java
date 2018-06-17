@@ -1,4 +1,4 @@
-package initliziers;
+package characters;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.EnergyManager;

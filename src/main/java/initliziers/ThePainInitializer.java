@@ -3,6 +3,7 @@ package initliziers;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import cards.*;
+import characters.CharacterPain;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.localization.RelicStrings;
