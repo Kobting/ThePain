@@ -1,0 +1,9 @@
+{
+  "modid": "The_Pain_0987678",
+  "name": "The Pain",
+  "author_list": ["Kobting"],
+  "description": "Adds a new character, The Pain. The Pain uses HP as a resource to increase its damage.",
+  "version": "0.1",
+  "sts_version": "06-15-2018",
+  "mts_version": "2.7.0"
+}
