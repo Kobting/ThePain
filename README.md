@@ -36,3 +36,8 @@ Drop of Blood | Rare | Skill | 2 | Heal 15(20) HP. Ethereal. Exhaust.
 
 </p>
 </details>
+
+## Requirements
+- Java 8 
+- [ModTheSpire](https://github.com/kiooeht/ModTheSpire/releases/latest)
+- [BaseMod](https://github.com/daviscook477/BaseMod/releases/latest)
