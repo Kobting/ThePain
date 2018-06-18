@@ -18,7 +18,7 @@ public class Bleed extends CustomCard {
 
     public static final String ID = "Bleed";
     public static final String NAME = "Bleed";
-    public static final String DESCRIPTION = "Take !M! damage.";
+    public static final String DESCRIPTION = "Lose !M! HP.";
 
     public Bleed() {
         super(ID, NAME, ThePainInitializer.BLEED_CARD_IMAGE_PATH, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.THE_PAIN_PURPLE, CardRarity.UNCOMMON, CardTarget.SELF);

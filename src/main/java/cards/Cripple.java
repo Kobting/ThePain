@@ -20,7 +20,7 @@ public class Cripple extends CustomCard {
 
     public static final String ID = "Cripple";
     public static final String NAME = "Crippling Blood";
-    public static final String DESCRIPTION = "Weaken enemy for " + WEAKEN_AMT + ". NL Heal for !M!";
+    public static final String DESCRIPTION = "Apply " + WEAKEN_AMT + " Weakness. NL Heal !M! HP.";
 
 
     public Cripple() {

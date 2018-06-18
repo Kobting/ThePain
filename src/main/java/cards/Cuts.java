@@ -21,7 +21,7 @@ public class Cuts extends CustomCard {
 
     public static final String ID = "Cuts";
     public static final String NAME = "Cuts";
-    public static final String DESCRIPTION = "Deal !D! damage. NL Take !M! damage.";
+    public static final String DESCRIPTION = "Deal !D! Damage. NL Lose !M! HP.";
 
     public Cuts() {
         super(ID, NAME, ThePainInitializer.DEFAULT_CARD_IMAGE_PATH, COST, DESCRIPTION, AbstractCard.CardType.ATTACK, AbstractCardEnum.THE_PAIN_PURPLE, CardRarity.COMMON, CardTarget.SELF_AND_ENEMY);

@@ -21,7 +21,7 @@ public class Bandaid extends CustomCard {
 
     public static final String ID = "Bandaid";
     public static final String NAME = "Bandaid";
-    public static final String DESCRIPTION = "Block for !B! and heal for !M!";
+    public static final String DESCRIPTION = "Gain !B! Block. NL Heal !M! HP.";
 
 
     public Bandaid() {

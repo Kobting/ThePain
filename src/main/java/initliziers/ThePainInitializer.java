@@ -71,15 +71,16 @@ public class ThePainInitializer implements
         BaseMod.addCard(new CutDry());          //Skill
 
         //Common Cards
-        BaseMod.addCard(new Bleed());           //Skill
         BaseMod.addCard(new Cuts());            //Attack
         BaseMod.addCard(new Bandaid());         //Skill
         BaseMod.addCard(new Cripple());         //Skill
         BaseMod.addCard(new SpikedShield());    //Skill
         BaseMod.addCard(new Flatten());         //Attack
+        BaseMod.addCard(new RepairBoot());      //Attack
 
         //UnCommon Cards
-
+        BaseMod.addCard(new Bleed());           //Skill
+        BaseMod.addCard(new Sacrifice());       //Skill
 
         //Rare Cards
         BaseMod.addCard(new DropOfBlood());     //Skill
