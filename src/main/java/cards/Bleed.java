@@ -2,6 +2,7 @@ package cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,11 +15,11 @@ public class Bleed extends CustomCard {
 
     private static final int COST = 0;
     private static final int SELF_DMG = 5;
-    private static final int UPGRADE_PLUS_DMG = 3;
+    private static final int UPGRADE_SELF_DMG = 3;
 
     public static final String ID = "Bleed";
     public static final String NAME = "Bleed";
-    public static final String DESCRIPTION = "Lose !M! HP.";
+    public static final String DESCRIPTION = "Lose !M! HP. NL Gain [R]";
 
     public Bleed() {
         super(ID, NAME, ThePainInitializer.BLEED_CARD_IMAGE_PATH, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.THE_PAIN_PURPLE, CardRarity.UNCOMMON, CardTarget.SELF);
@@ -29,7 +30,8 @@ public class Bleed extends CustomCard {
     public void upgrade() {
         if(!upgraded){
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DMG);
+            upgradeMagicNumber(UPGRADE_SELF_DMG);
+            rawDescription += " [R]";
         }
     }
 
@@ -40,6 +42,7 @@ public class Bleed extends CustomCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(abstractPlayer, new DamageInfo(abstractPlayer, this.magicNumber)));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(abstractPlayer, new DamageInfo(abstractPlayer, this.magicNumber, DamageInfo.DamageType.HP_LOSS)));
+        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(upgraded ? 2 : 1));
     }
 }

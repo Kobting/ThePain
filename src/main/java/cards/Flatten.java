@@ -13,16 +13,19 @@ import initliziers.ThePainInitializer;
 public class Flatten extends CustomCard {
 
     private static final int COST = 1;
-    private static final int ATTACK_DMG = 9;
+    private static final int ATTACK_DMG = 15;
     private static final int UPGRADE_PLUS_DMG = 3;
+    private static final int GOLD_MULTIPLIER = 1;
+    private static final int UPGRADE_GOLD_MULTIPLIER = 1;
 
     public static final String ID = "Flatten";
     public static final String NAME = "Flatten";
-    public static final String DESCRIPTION = "Deal !D! damage.";
+    public static final String DESCRIPTION = "Deal !D! damage. NL Gain !M!X gold of Damage given.";
 
     public Flatten() {
         super(ID, NAME, ThePainInitializer.DEFAULT_CARD_IMAGE_PATH, COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.THE_PAIN_PURPLE, CardRarity.COMMON, CardTarget.SELF_AND_ENEMY);
         this.baseDamage = this.damage = ATTACK_DMG;
+        this.baseMagicNumber = this.magicNumber = GOLD_MULTIPLIER;
     }
 
     @Override
@@ -30,8 +33,10 @@ public class Flatten extends CustomCard {
         if(!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeMagicNumber(UPGRADE_GOLD_MULTIPLIER);
         }
     }
+
 
     @Override
     public AbstractCard makeCopy() {
@@ -40,6 +45,11 @@ public class Flatten extends CustomCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(abstractMonster, new DamageInfo(abstractPlayer, this.damage, DamageInfo.DamageType.NORMAL)));
+        int monsterHealth = abstractMonster.currentHealth;
+        DamageAction action = new DamageAction(abstractMonster, new DamageInfo(abstractPlayer, this.damage, DamageInfo.DamageType.NORMAL));
+        AbstractDungeon.actionManager.addToBottom(action);
+        //Don't steal more gold than the monster had health left
+        int damageDelt = monsterHealth > action.amount ? action.amount : action.amount - monsterHealth;
+        AbstractDungeon.player.gainGold(damageDelt * this.magicNumber);
     }
 }

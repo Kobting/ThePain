@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import initliziers.ThePainInitializer;
 
 
@@ -68,9 +69,11 @@ public class ShatteredGlass extends CustomRelic {
         trackHPLost = false;
     }
 
+
     @Override
     public void atTurnStart() {
         super.atTurnStart();
+        this.setCounter(0);
         trackHPLost = true;
     }
 }

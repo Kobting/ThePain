@@ -17,8 +17,8 @@ public class CharacterPain extends AbstractPlayer {
         this.dialogX = (this.drawX + 0.0F * Settings.scale);
         this.dialogY = (this.drawY + 220.0F * Settings.scale);
 
-        initializeClass("images/main.png", "images/shoulder2.png",
-                "images/shoulder.png",
+        initializeClass("images/characters/main.png", "images/characters/shoulder2.png",
+                "images/characters/shoulder.png",
                 "images/characters/corpse.png",
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(3));
 

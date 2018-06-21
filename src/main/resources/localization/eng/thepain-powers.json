@@ -1,0 +1,8 @@
+{
+  "Protection": {
+    "NAME":"Protection",
+    "DESCRIPTIONS": [
+      "Heal for all self damage taken this turn."
+    ]
+  }
+}
