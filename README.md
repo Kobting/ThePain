@@ -52,3 +52,8 @@ Protection | Heal for all self damage taken this turn.
 
 </p>
 </details>
+
+## Requirements
+- Java 8 
+- [ModTheSpire](https://github.com/kiooeht/ModTheSpire/releases/latest)
+- [BaseMod](https://github.com/daviscook477/BaseMod/releases/latest)
