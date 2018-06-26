@@ -50,17 +50,17 @@ public class CharacterPain extends AbstractPlayer {
     public static ArrayList<String> getStartingDeck() {
         ArrayList<String> deck = new ArrayList<>();
 
-        deck.add("Strike_PAIN");
-        deck.add("Strike_PAIN");
-        deck.add("Strike_PAIN");
-        deck.add("Strike_PAIN");
-        deck.add("Strike_PAIN");
-        deck.add("Defend_PAIN");
-        deck.add("Defend_PAIN");
-        deck.add("Defend_PAIN");
-        deck.add("Defend_PAIN");
-        deck.add("Defend_PAIN");
-        deck.add("Cut_Dry");
+        deck.add("Strike_Pain");
+        deck.add("Strike_Pain");
+        deck.add("Strike_Pain");
+        deck.add("Strike_Pain");
+        deck.add("Strike_Pain");
+        deck.add("Defend_Pain");
+        deck.add("Defend_Pain");
+        deck.add("Defend_Pain");
+        deck.add("Defend_Pain");
+        deck.add("Defend_Pain");
+        deck.add("CutDry");
 
 
         return deck;

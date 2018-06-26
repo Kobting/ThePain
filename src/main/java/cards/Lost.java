@@ -6,24 +6,24 @@ import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import enums.AbstractCardEnum;
 import initliziers.ThePainInitializer;
 
-public class Lost extends CustomCard {
+public class Lost extends PainCustomCard {
+
+    public static final String ID = "Lost";
 
     private static final int COST = 1;
     private static final int DISCARD_AMT = 3;
     private static final int HEAL_AMT = 1;
     private static final int UPGRADE_HEAL_AMT = 1;
 
-    public static final String ID = "Lost";
-    public static final String NAME = "Lost";
-    public static final String DESCRIPTION = "Discard up to " + DISCARD_AMT + " Cards. NL Heal !M! HP for every Card Discarded.";
-
     public Lost() {
-        super(ID, NAME, ThePainInitializer.DEFAULT_CARD_IMAGE_PATH, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.THE_PAIN_PURPLE, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, AbstractCardEnum.THE_PAIN_PURPLE, CardRarity.UNCOMMON, CardTarget.SELF);
         this.baseMagicNumber = this.magicNumber = HEAL_AMT;
     }
 

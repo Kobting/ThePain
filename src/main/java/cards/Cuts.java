@@ -6,25 +6,24 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import enums.AbstractCardEnum;
 import initliziers.ThePainInitializer;
 
-public class Cuts extends CustomCard {
+public class Cuts extends PainCustomCard {
 
+    public static final String ID = "Cuts";
 
     private static final int COST = 0;
     private static final int ATTACK_DMG = 6;
     private static final int SELF_DMG = 1;
     private static final int UPGRADE_PLUS_DMG = 3;
 
-    public static final String ID = "Cuts";
-    public static final String NAME = "Cuts";
-    public static final String DESCRIPTION = "Deal !D! Damage. NL Lose !M! HP.";
-
     public Cuts() {
-        super(ID, NAME, ThePainInitializer.DEFAULT_CARD_IMAGE_PATH, COST, DESCRIPTION, AbstractCard.CardType.ATTACK, AbstractCardEnum.THE_PAIN_PURPLE, CardRarity.COMMON, CardTarget.SELF_AND_ENEMY);
+        super(ID, COST, AbstractCard.CardType.ATTACK, AbstractCardEnum.THE_PAIN_PURPLE, CardRarity.COMMON, CardTarget.SELF_AND_ENEMY);
         this.damage = this.baseDamage = ATTACK_DMG;
         this.magicNumber = this.baseMagicNumber = SELF_DMG;
     }

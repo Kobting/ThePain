@@ -5,12 +5,16 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import enums.AbstractCardEnum;
 import initliziers.ThePainInitializer;
 
-public class Flatten extends CustomCard {
+public class Flatten extends PainCustomCard {
+
+    public static final String ID = "Flatten";
 
     private static final int COST = 1;
     private static final int ATTACK_DMG = 15;
@@ -18,12 +22,8 @@ public class Flatten extends CustomCard {
     private static final int GOLD_MULTIPLIER = 1;
     private static final int UPGRADE_GOLD_MULTIPLIER = 1;
 
-    public static final String ID = "Flatten";
-    public static final String NAME = "Flatten";
-    public static final String DESCRIPTION = "Deal !D! damage. NL Gain !M!X gold of Damage given.";
-
     public Flatten() {
-        super(ID, NAME, ThePainInitializer.DEFAULT_CARD_IMAGE_PATH, COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.THE_PAIN_PURPLE, CardRarity.COMMON, CardTarget.SELF_AND_ENEMY);
+        super(ID, COST, CardType.ATTACK, AbstractCardEnum.THE_PAIN_PURPLE, CardRarity.COMMON, CardTarget.SELF_AND_ENEMY);
         this.baseDamage = this.damage = ATTACK_DMG;
         this.baseMagicNumber = this.magicNumber = GOLD_MULTIPLIER;
     }

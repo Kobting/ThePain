@@ -8,15 +8,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.megacrit.cardcrawl.cards.blue.Strike_Blue;
-import com.megacrit.cardcrawl.localization.Keyword;
-import com.megacrit.cardcrawl.localization.KeywordStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.localization.*;
 import enums.AbstractCardEnum;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import enums.ThePainCharacterEnum;
+import helpers.CardHelper;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,6 +22,7 @@ import relics.ShatteredGlass;
 
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Map;
 
 
@@ -33,12 +32,9 @@ public class ThePainInitializer implements
         EditStringsSubscriber, EditCharactersSubscriber,
         EditKeywordsSubscriber{
 
-    public static final String DEFAULT_CARD_IMAGE_PATH = "images/cards/beta_purple.png";
-    public static final String DEFEND_CARD_IMAGE_PATH = "images/cards/defend_purple.png";
-    public static final String ATTACK_CARD_IMAGE_PATH = "images/cards/strike_purple.png";
-    public static final String BLEED_CARD_IMAGE_PATH = "images/cards/bleed.png";
 
     private static Logger logger;
+    private static ArrayList<PainCustomCard> cards;
 
 
     public ThePainInitializer(){
@@ -48,6 +44,7 @@ public class ThePainInitializer implements
     //Method needed for @SpireInitializer
     public static void initialize(){
         logger = LogManager.getLogger(ThePainInitializer.class.getName());
+
 
         logger.log(Level.INFO, "-------------Initializing: " + AbstractCardEnum.THE_PAIN_PURPLE.toString() + "----------------------");
 
@@ -76,30 +73,7 @@ public class ThePainInitializer implements
 
         logger.log(Level.INFO, "Adding new cards");
 
-        //Basic Starter Cards
-        BaseMod.addCard(new Strike_Pain());     //Attack
-        BaseMod.addCard(new Defend_Pain());     //Skill
-        BaseMod.addCard(new CutDry());          //Skill
-
-        //Common Cards
-        BaseMod.addCard(new Cuts());            //Attack
-        BaseMod.addCard(new Bandaid());         //Skill
-        BaseMod.addCard(new Cripple());         //Skill
-        BaseMod.addCard(new SpikedShield());    //Skill
-        BaseMod.addCard(new Flatten());         //Attack
-        BaseMod.addCard(new RepairBoot());      //Attack
-        BaseMod.addCard(new Dark());            //Skill
-
-        //UnCommon Cards
-        BaseMod.addCard(new Bleed());           //Skill
-        BaseMod.addCard(new Sacrifice());       //Skill
-        BaseMod.addCard(new Lost());            //Skill
-        BaseMod.addCard(new Light());           //Skill
-
-        //Rare Cards
-        BaseMod.addCard(new DropOfBlood());     //Skill
-        BaseMod.addCard(new LegBreak());        //Skill
-        BaseMod.addCard(new DeepCut());         //Attack
+        CardHelper.getInstance().addAllCards();
 
         logger.log(Level.INFO, "Finished adding new cards");
     }
@@ -117,8 +91,8 @@ public class ThePainInitializer implements
     public void receiveEditStrings() {
         BaseMod.loadCustomStrings(RelicStrings.class, Gdx.files.internal("localization/eng/thepain-relics.json").readString(String.valueOf(StandardCharsets.UTF_8)));
         BaseMod.loadCustomStrings(PowerStrings.class, Gdx.files.internal("localization/eng/thepain-powers.json").readString(String.valueOf(StandardCharsets.UTF_8)));
-        BaseMod.loadCustomStrings(KeywordStrings.class, Gdx.files.internal("localization/eng/thepain-keywords.json").readString(String.valueOf(StandardCharsets.UTF_8)));
-
+        //BaseMod.loadCustomStrings(KeywordStrings.class, Gdx.files.internal("localization/eng/thepain-keywords.json").readString(String.valueOf(StandardCharsets.UTF_8)));
+        BaseMod.loadCustomStrings(CardStrings.class, Gdx.files.internal("localization/eng/thepain-cards.json").readString(String.valueOf(StandardCharsets.UTF_8)));
 
     }
 

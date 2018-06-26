@@ -5,23 +5,23 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import enums.AbstractCardEnum;
 import initliziers.ThePainInitializer;
 
-public class Strike_Pain extends CustomCard {
+public class Strike_Pain extends PainCustomCard {
+
+    public static final String ID = "Strike_Pain";
 
     private static final int COST = 1;
     private static final int ATTACK_DMG = 6;
     private static final int UPGRADE_PLUS_DMG = 3;
 
-    public static final String ID = "Strike_PAIN";
-    public static final String NAME = "Strike";
-    public static final String DESCRIPTION = "Deal !D! damage.";
-
     public Strike_Pain() {
-        super(ID, NAME, ThePainInitializer.ATTACK_CARD_IMAGE_PATH, COST, DESCRIPTION, CardType.ATTACK, AbstractCardEnum.THE_PAIN_PURPLE, CardRarity.BASIC, CardTarget.ENEMY);
+        super(ID, COST, CardType.ATTACK, AbstractCardEnum.THE_PAIN_PURPLE, CardRarity.BASIC, CardTarget.ENEMY);
         this.damage = this.baseDamage = ATTACK_DMG;
     }
 

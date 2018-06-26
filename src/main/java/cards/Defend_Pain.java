@@ -4,23 +4,23 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import enums.AbstractCardEnum;
 import initliziers.ThePainInitializer;
 
-public class Defend_Pain extends CustomCard {
+public class Defend_Pain extends PainCustomCard {
+
+    public static final String ID = "Defend_Pain";
 
     private static final int COST = 1;
     private static final int BLOCK_AMT = 5;
     private static final int UPGRADE_PLUS_BLOCK = 3;
 
-    public static final String ID = "Defend_PAIN";
-    public static final String NAME = "Defend";
-    public static final String DESCRIPTION = "Gain !B! Block.";
-
     public Defend_Pain() {
-        super(ID, NAME, ThePainInitializer.DEFEND_CARD_IMAGE_PATH, COST, DESCRIPTION, CardType.SKILL, AbstractCardEnum.THE_PAIN_PURPLE, CardRarity.BASIC, CardTarget.SELF);
+        super(ID, COST, CardType.SKILL, AbstractCardEnum.THE_PAIN_PURPLE, CardRarity.BASIC, CardTarget.SELF);
         this.block = this.baseBlock = BLOCK_AMT;
     }
 
