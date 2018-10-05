@@ -1,9 +1,16 @@
 {
-  "Shattered_Glass": {
+  "thepain:ShatteredGlass": {
     "NAME": "Shattered Glass",
     "FLAVOR" : "None yet",
     "DESCRIPTIONS" : [
-      "Deal damage equal to 2 times the stacks of blood you have to all enemies at the end of your turn."
+      "Deal damage equal to #b2 times the stacks of blood you have to all enemies at the end of your turn."
+    ]
+  },
+  "thepain:BloodBag": {
+    "NAME": "Blood Bag",
+    "FLAVOR": "Tastes like metal",
+    "DESCRIPTIONS" : [
+      "Start each combat with #b3 stacks of blood"
     ]
   }
 }

@@ -34,7 +34,7 @@ class RepairBoot : PainCustomCard(ID, COST, AbstractCard.CardType.ATTACK, Abstra
     }
 
     companion object {
-
+        @JvmStatic
         val ID = "thepain:RepairBoot"
 
         private val COST = 2

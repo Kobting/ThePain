@@ -1,15 +1,13 @@
 package kobting.thepain.relics
 
-import basemod.abstracts.CustomRelic
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.relics.AbstractRelic
-import kobting.thepain.ThePainInitializer
 import kobting.thepain.powers.BloodPower
 
 
-class ShatteredGlass : CustomRelic(ID, ThePainInitializer.starterRelicTexture, ThePainInitializer.starterRelicTexture, AbstractRelic.RelicTier.STARTER, AbstractRelic.LandingSound.MAGICAL) {
+class ShatteredGlass : PainCustomRelic(ID, AbstractRelic.RelicTier.STARTER, AbstractRelic.LandingSound.MAGICAL) {
 
     override fun makeCopy(): AbstractRelic {
         return ShatteredGlass()
@@ -41,7 +39,7 @@ class ShatteredGlass : CustomRelic(ID, ThePainInitializer.starterRelicTexture, T
     companion object {
 
         @JvmStatic
-        val ID = "Shattered_Glass"
+        val ID = "thepain:ShatteredGlass"
     }
 
 }

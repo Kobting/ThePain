@@ -39,6 +39,7 @@ class Dark : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCardE
 
     companion object {
 
+        @JvmStatic
         val ID = "thepain:Dark"
 
         private val COST = -2

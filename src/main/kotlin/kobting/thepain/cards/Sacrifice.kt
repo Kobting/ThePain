@@ -32,7 +32,7 @@ class Sacrifice : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, Abstract
     }
 
     companion object {
-
+        @JvmStatic
         val ID = "thepain:Sacrifice"
 
         private val COST = 1

@@ -35,6 +35,7 @@ class DeepCut : PainCustomCard(ID, COST, AbstractCard.CardType.ATTACK, AbstractC
 
     companion object {
 
+        @JvmStatic
         val ID = "thepain:DeepCut"
 
         private val COST = 2

@@ -35,7 +35,7 @@ class Happy : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCard
     }
 
     companion object {
-
+        @JvmStatic
         val ID = "thepain:Happy"
 
         private val COST = 1

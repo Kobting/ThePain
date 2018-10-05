@@ -10,6 +10,7 @@ import kobting.thepain.cards.CutDry
 import kobting.thepain.cards.Defend_Pain
 import kobting.thepain.cards.Strike_Pain
 import kobting.thepain.patches.ThePainCharacterEnum
+import kobting.thepain.relics.ShatteredGlass
 
 import java.util.ArrayList
 
@@ -76,7 +77,7 @@ class CharacterPain(name: String, setClass: AbstractPlayer.PlayerClass) : Custom
             {
                 val relics = ArrayList<String>()
 
-                relics.add("Shattered_Glass")
+                relics.add(ShatteredGlass.ID)
 
                 return relics
             }

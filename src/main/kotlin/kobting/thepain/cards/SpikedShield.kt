@@ -35,7 +35,7 @@ class SpikedShield : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, Abstr
     }
 
     companion object {
-
+        @JvmStatic
         val ID = "thepain:SpikedShield"
 
         private val COST = 1

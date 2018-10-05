@@ -39,7 +39,7 @@ class Flatten : PainCustomCard(ID, COST, AbstractCard.CardType.ATTACK, AbstractC
     }
 
     companion object {
-
+        @JvmStatic
         val ID = "thepain:Flatten"
 
         private val COST = 1

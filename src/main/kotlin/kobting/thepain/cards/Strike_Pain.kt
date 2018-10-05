@@ -30,7 +30,7 @@ class Strike_Pain : PainCustomCard(ID, COST, AbstractCard.CardType.ATTACK, Abstr
     }
 
     companion object {
-
+        @JvmStatic
         val ID = "thepain:Strike_Pain"
 
         private val COST = 1

@@ -1,9 +1,13 @@
 package kobting.thepain.cards
 
+import basemod.ReflectionHacks
 import basemod.abstracts.CustomCard
+import com.badlogic.gdx.graphics.Texture
+import com.badlogic.gdx.graphics.g2d.TextureAtlas
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
+import com.megacrit.cardcrawl.helpers.ImageMaster
 import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import kobting.thepain.helpers.CardHelper
@@ -36,5 +40,6 @@ abstract class PainCustomCard(ID: String, cost: Int, type: AbstractCard.CardType
             this.initializeDescription()
         }
     }
+
 
 }

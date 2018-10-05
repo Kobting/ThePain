@@ -3,7 +3,6 @@ package kobting.thepain
 import basemod.BaseMod
 import basemod.interfaces.*
 import com.badlogic.gdx.Gdx
-import com.badlogic.gdx.graphics.Texture
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.localization.*
@@ -12,9 +11,11 @@ import com.badlogic.gdx.graphics.Color
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
 import kobting.thepain.character.CharacterPain
 import kobting.thepain.helpers.CardHelper
+import kobting.thepain.helpers.RelicHelper
 import kobting.thepain.patches.AbstractCardEnum
 import kobting.thepain.patches.ThePainCharacterEnum
 import kobting.thepain.powers.BloodPower
+import kobting.thepain.relics.BloodBag
 import kobting.thepain.relics.ShatteredGlass
 import org.apache.logging.log4j.Level
 import org.apache.logging.log4j.LogManager
@@ -25,29 +26,12 @@ import java.nio.charset.StandardCharsets
 
 @SpireInitializer
 class ThePainInitializer :
-        EditCardsSubscriber, EditRelicsSubscriber,
         EditStringsSubscriber, EditCharactersSubscriber,
         EditKeywordsSubscriber, OnStartBattleSubscriber {
 
 
     init {
         BaseMod.subscribe(this)
-    }
-
-    override fun receiveEditCards() {
-
-        logger!!.log(Level.INFO, "Adding new cards")
-
-        CardHelper.addAllCards()
-
-        logger!!.log(Level.INFO, "Finished adding new cards")
-    }
-
-    override fun receiveEditRelics() {
-
-        //Both options cause null pointers
-
-        BaseMod.addRelicToCustomPool(ShatteredGlass(), AbstractCardEnum.THE_PAIN_PURPLE)
     }
 
     override fun receiveEditStrings() {
@@ -72,7 +56,8 @@ class ThePainInitializer :
     override fun receiveOnBattleStart(abstractRoom: AbstractRoom) {
         val player = AbstractDungeon.player
         //Don't want shattered glass relic to be useless on other characters.
-        if (player is CharacterPain || player.hasRelic(ShatteredGlass.ID)) {
+        if(player.hasRelic(BloodBag.ID)) {}
+        else if (player is CharacterPain || player.hasRelic(ShatteredGlass.ID)) {
             AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(player, player, BloodPower(player)))
         }
     }
@@ -97,6 +82,10 @@ class ThePainInitializer :
                     "kobting/thepain/images/ui/bg_power_purple_p.png", "kobting/thepain/images/ui/card_purple_orb_p.png")
 
 
+            //Possibly make them subscribe to BaseMod?
+            CardHelper.getImagePath("")
+            RelicHelper.getImagePath("")
+
             ThePainInitializer()
 
 
@@ -105,8 +94,5 @@ class ThePainInitializer :
 
         }
 
-        @JvmStatic
-        val starterRelicTexture: Texture
-            get() = Texture("kobting/thepain/images/relics/shattered_glass.png")
     }
 }

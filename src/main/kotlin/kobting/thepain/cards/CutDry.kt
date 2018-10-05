@@ -35,6 +35,7 @@ class CutDry : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCar
 
     companion object {
 
+        @JvmStatic
         val ID = "thepain:CutDry"
 
         private val COST = 1

@@ -41,6 +41,7 @@ class Cuts : PainCustomCard(ID, COST, AbstractCard.CardType.ATTACK, AbstractCard
 
     companion object {
 
+        @JvmStatic
         val ID = "thepain:Cuts"
 
         private val COST = 0

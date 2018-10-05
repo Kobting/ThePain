@@ -35,6 +35,7 @@ class Cripple : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCa
 
     companion object {
 
+        @JvmStatic
         val ID = "thepain:Cripple"
 
         private val COST = 2

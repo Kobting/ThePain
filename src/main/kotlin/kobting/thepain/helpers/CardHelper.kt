@@ -1,21 +1,24 @@
 package kobting.thepain.helpers
 
 import basemod.BaseMod
+import basemod.interfaces.EditCardsSubscriber
+import com.sun.media.jfxmedia.logging.Logger
 import kobting.thepain.cards.*
 
 import java.util.HashMap
 
-object CardHelper {
-
-    private var imagePaths: MHashMap? = null
+object CardHelper : EditCardsSubscriber{
+    private var imagePaths = ImageMap("kobting.thepain.cards.", "kobting/thepain/images/cards/", "thepain:")
     private val DEFAULT_IMAGE_NAME = "beta_purple.png"
 
     init {
-        initImagePaths()
+        BaseMod.subscribe(this)
     }
 
-    fun addAllCards() {
+    override fun receiveEditCards() {
 
+        initImagePaths()
+        println("ThePain: Adding Cards")
         //15 cards total in reward pool
 
         //Basic Starter Cards
@@ -51,58 +54,36 @@ object CardHelper {
     }
 
     private fun initImagePaths() {
-        imagePaths = MHashMap()
+        println("ThePain: Creating Card Images")
         //There's probably a better way to do this.
         //Requires all IDs to match their class name.
-        imagePaths!![Bandaid::class.java.name] = DEFAULT_IMAGE_NAME
-        imagePaths!![Bleed::class.java.name] = "bleed.png"
-        imagePaths!![Cripple::class.java.name] = DEFAULT_IMAGE_NAME
-        imagePaths!![CutDry::class.java.name] = DEFAULT_IMAGE_NAME
-        imagePaths!![Cuts::class.java.name] = DEFAULT_IMAGE_NAME
-        imagePaths!![Dark::class.java.name] = DEFAULT_IMAGE_NAME
-        imagePaths!![DeepCut::class.java.name] = DEFAULT_IMAGE_NAME
-        imagePaths!![Defend_Pain::class.java.name] = "defend_purple.png"
-        imagePaths!![DropOfBlood::class.java.name] = DEFAULT_IMAGE_NAME
-        imagePaths!![Flatten::class.java.name] = DEFAULT_IMAGE_NAME
-        imagePaths!![Happy::class.java.name] = DEFAULT_IMAGE_NAME
-        imagePaths!![LegBreak::class.java.name] = DEFAULT_IMAGE_NAME
-        imagePaths!![Light::class.java.name] = DEFAULT_IMAGE_NAME
-        imagePaths!![Lost::class.java.name] = DEFAULT_IMAGE_NAME
-        imagePaths!![RepairBoot::class.java.name] = DEFAULT_IMAGE_NAME
-        imagePaths!![Sacrifice::class.java.name] = DEFAULT_IMAGE_NAME
-        imagePaths!![Sad::class.java.name] = DEFAULT_IMAGE_NAME
-        imagePaths!![SpikedShield::class.java.name] = DEFAULT_IMAGE_NAME
-        imagePaths!![Strike_Pain::class.java.name] = "strike_purple.png"
+        imagePaths.put(Bandaid::class.java.name, DEFAULT_IMAGE_NAME)
+        imagePaths.put(Bleed::class.java.name,"bleed.png")
+        imagePaths.put(Cripple::class.java.name,DEFAULT_IMAGE_NAME)
+        imagePaths.put(CutDry::class.java.name,DEFAULT_IMAGE_NAME)
+        imagePaths.put(Cuts::class.java.name,DEFAULT_IMAGE_NAME)
+        imagePaths.put(Dark::class.java.name,DEFAULT_IMAGE_NAME)
+        imagePaths.put(DeepCut::class.java.name,DEFAULT_IMAGE_NAME)
+        imagePaths.put(Defend_Pain::class.java.name,"defend_purple.png")
+        imagePaths.put(DropOfBlood::class.java.name,DEFAULT_IMAGE_NAME)
+        imagePaths.put(Flatten::class.java.name,DEFAULT_IMAGE_NAME)
+        imagePaths.put(Happy::class.java.name,DEFAULT_IMAGE_NAME)
+        imagePaths.put(LegBreak::class.java.name,DEFAULT_IMAGE_NAME)
+        imagePaths.put(Light::class.java.name,DEFAULT_IMAGE_NAME)
+        imagePaths.put(Lost::class.java.name,DEFAULT_IMAGE_NAME)
+        imagePaths.put(RepairBoot::class.java.name,DEFAULT_IMAGE_NAME)
+        imagePaths.put(Sacrifice::class.java.name,DEFAULT_IMAGE_NAME)
+        imagePaths.put(Sad::class.java.name,DEFAULT_IMAGE_NAME)
+        imagePaths.put(SpikedShield::class.java.name,DEFAULT_IMAGE_NAME)
+        imagePaths.put(Strike_Pain::class.java.name,"strike_purple.png")
+
+        println("ThePain: All Card image keys ${imagePaths.keys}")
     }
 
 
     fun getImagePath(ID: String): String {
-        return imagePaths!!.getOrDefault(ID, DEFAULT_IMAGE_NAME)
+        return imagePaths.getOrDefault(ID, DEFAULT_IMAGE_NAME)
     }
 
-
-    private class MHashMap : HashMap<String, String>() {
-
-        private val CARD_PACKAGE = "kobting.thapain.cards."
-        private val IMAGES_PATH = "kobting/thepain/images/cards/"
-
-        //If any card names start to collide with the game or other mods
-        //make this a custom name.
-        private val MOD_STRING = "pain:"
-
-        override fun put(key: String, value: String): String? {
-            return super.put(MOD_STRING + key.replace(CARD_PACKAGE, ""), IMAGES_PATH + value)
-        }
-
-        override fun getOrDefault(key: String, defaultValue: String): String {
-            val _key = key
-            return super.getOrDefault(MOD_STRING + _key, IMAGES_PATH + defaultValue)
-        }
-
-        override operator fun get(key: String): String? {
-            val _key = key
-            return super.get(MOD_STRING + _key)
-        }
-    }
 
 }

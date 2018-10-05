@@ -31,7 +31,7 @@ class DropOfBlood : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, Abstra
     }
 
     companion object {
-
+        @JvmStatic
         val ID = "thepain:DropOfBlood"
 
         private val COST = 2
