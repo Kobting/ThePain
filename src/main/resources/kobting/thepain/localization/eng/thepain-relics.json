@@ -1,0 +1,9 @@
+{
+  "Shattered_Glass": {
+    "NAME": "Shattered Glass",
+    "FLAVOR" : "None yet",
+    "DESCRIPTIONS" : [
+      "Deal damage equal to 2 times the stacks of blood you have to all enemies at the end of your turn."
+    ]
+  }
+}

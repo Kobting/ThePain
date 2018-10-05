@@ -1,0 +1,14 @@
+{
+  "thepain:Protection": {
+    "NAME":"Protection",
+    "DESCRIPTIONS": [
+      "Heal for all self damage taken this turn."
+    ]
+  },
+  "thepain:Blood": {
+    "NAME":"Blood",
+    "DESCRIPTIONS": [
+      "Gain a stack of blood for each HP lost from self damage. NL resets to 0 at the end of your turn."
+    ]
+  }
+}

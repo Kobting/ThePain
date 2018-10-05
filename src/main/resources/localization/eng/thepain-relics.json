@@ -1,9 +1,0 @@
-{
-  "Shattered_Glass": {
-    "NAME": "Shattered Glass",
-    "FLAVOR" : "None yet",
-    "DESCRIPTIONS" : [
-      "Deal 2 times the self damage taken this turn to all enemies."
-    ]
-  }
-}
