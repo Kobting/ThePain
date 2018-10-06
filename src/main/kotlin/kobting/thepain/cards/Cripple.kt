@@ -10,6 +10,17 @@ import com.megacrit.cardcrawl.powers.WeakPower
 import kobting.thepain.patches.AbstractCardEnum
 
 class Cripple : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCardEnum.THE_PAIN_PURPLE, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF_AND_ENEMY) {
+
+    companion object {
+
+        @JvmStatic
+        val ID = "thepain:Cripple"
+
+        private val COST = 2
+        private val HEAL_AMT = 3
+        private val HEAL_UPG_AMT = 2
+    }
+
     init {
         this.baseMagicNumber = HEAL_AMT
         this.magicNumber = this.baseMagicNumber
@@ -33,13 +44,5 @@ class Cripple : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCa
         AbstractDungeon.actionManager.addToBottom(HealAction(abstractPlayer, abstractPlayer, this.magicNumber))
     }
 
-    companion object {
 
-        @JvmStatic
-        val ID = "thepain:Cripple"
-
-        private val COST = 2
-        private val HEAL_AMT = 3
-        private val HEAL_UPG_AMT = 2
-    }
 }

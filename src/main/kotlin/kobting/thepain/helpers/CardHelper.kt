@@ -42,6 +42,7 @@ object CardHelper : EditCardsSubscriber{
         BaseMod.addCard(Light())                 //Skill
         BaseMod.addCard(Sad())                   //Skill
         BaseMod.addCard(BloodySkewer())          //Attack
+        BaseMod.addCard(Relief())                //Power
 
         //Rare Cards
         BaseMod.addCard(DropOfBlood())           //Skill
@@ -57,27 +58,10 @@ object CardHelper : EditCardsSubscriber{
         println("ThePain: Creating Card Images")
         //There's probably a better way to do this.
         //Requires all IDs to match their class name.
-        imagePaths.put(Bandaid::class.java.name, DEFAULT_IMAGE_NAME)
         imagePaths.put(Bleed::class.java.name,"bleed.png")
-        imagePaths.put(Cripple::class.java.name,DEFAULT_IMAGE_NAME)
-        imagePaths.put(CutDry::class.java.name,DEFAULT_IMAGE_NAME)
-        imagePaths.put(Cuts::class.java.name,DEFAULT_IMAGE_NAME)
-        imagePaths.put(Dark::class.java.name,DEFAULT_IMAGE_NAME)
-        imagePaths.put(DeepCut::class.java.name,DEFAULT_IMAGE_NAME)
         imagePaths.put(Defend_Pain::class.java.name,"defend_purple.png")
-        imagePaths.put(DropOfBlood::class.java.name,DEFAULT_IMAGE_NAME)
-        imagePaths.put(Flatten::class.java.name,DEFAULT_IMAGE_NAME)
-        imagePaths.put(Happy::class.java.name,DEFAULT_IMAGE_NAME)
-        imagePaths.put(LegBreak::class.java.name,DEFAULT_IMAGE_NAME)
-        imagePaths.put(Light::class.java.name,DEFAULT_IMAGE_NAME)
-        imagePaths.put(Lost::class.java.name,DEFAULT_IMAGE_NAME)
-        imagePaths.put(RepairBoot::class.java.name,DEFAULT_IMAGE_NAME)
-        imagePaths.put(Sacrifice::class.java.name,DEFAULT_IMAGE_NAME)
-        imagePaths.put(Sad::class.java.name,DEFAULT_IMAGE_NAME)
-        imagePaths.put(SpikedShield::class.java.name,DEFAULT_IMAGE_NAME)
         imagePaths.put(Strike_Pain::class.java.name,"strike_purple.png")
 
-        println("ThePain: All Card image keys ${imagePaths.keys}")
     }
 
 

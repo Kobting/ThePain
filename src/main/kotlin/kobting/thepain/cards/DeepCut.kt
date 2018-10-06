@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import kobting.thepain.patches.AbstractCardEnum
-import kobting.thepain.powers.ProtectionPower
+import kobting.thepain.powers.Protection
 
 class DeepCut : PainCustomCard(ID, COST, AbstractCard.CardType.ATTACK, AbstractCardEnum.THE_PAIN_PURPLE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF_AND_ENEMY) {
     init {
@@ -30,7 +30,7 @@ class DeepCut : PainCustomCard(ID, COST, AbstractCard.CardType.ATTACK, AbstractC
 
     override fun use(abstractPlayer: AbstractPlayer?, abstractMonster: AbstractMonster?) {
         AbstractDungeon.actionManager.addToBottom(DamageAction(abstractMonster, DamageInfo(abstractPlayer, this.damage, DamageInfo.DamageType.NORMAL)))
-        AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(abstractPlayer, abstractPlayer, ProtectionPower(abstractPlayer as AbstractCreature)))
+        AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(abstractPlayer, abstractPlayer, Protection(abstractPlayer as AbstractCreature, 1), 1))
     }
 
     companion object {

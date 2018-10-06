@@ -9,12 +9,14 @@ import com.megacrit.cardcrawl.localization.*
 import com.megacrit.cardcrawl.rooms.AbstractRoom
 import com.badlogic.gdx.graphics.Color
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
+import com.megacrit.cardcrawl.core.CardCrawlGame
 import kobting.thepain.character.CharacterPain
 import kobting.thepain.helpers.CardHelper
 import kobting.thepain.helpers.RelicHelper
 import kobting.thepain.patches.AbstractCardEnum
 import kobting.thepain.patches.ThePainCharacterEnum
-import kobting.thepain.powers.BloodPower
+import kobting.thepain.powers.Blood
+import kobting.thepain.powers.Relief
 import kobting.thepain.relics.BloodBag
 import kobting.thepain.relics.ShatteredGlass
 import org.apache.logging.log4j.Level
@@ -50,6 +52,9 @@ class ThePainInitializer :
 
         val protection = arrayOf("Protection", "protection")
         BaseMod.addKeyword(protection, "Heal for all HP lost this turn at the end of the turn.")
+
+        val relief = arrayOf("Relief", "relief")
+        BaseMod.addKeyword(relief, CardCrawlGame.languagePack.getPowerStrings(Relief.id).DESCRIPTIONS[0])
     }
 
 
@@ -58,7 +63,7 @@ class ThePainInitializer :
         //Don't want shattered glass relic to be useless on other characters.
         if(player.hasRelic(BloodBag.ID)) {}
         else if (player is CharacterPain || player.hasRelic(ShatteredGlass.ID)) {
-            AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(player, player, BloodPower(player)))
+            AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(player, player, Blood(player)))
         }
     }
 

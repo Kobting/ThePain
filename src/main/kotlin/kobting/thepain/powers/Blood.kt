@@ -8,12 +8,23 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.helpers.FontHelper
 import com.megacrit.cardcrawl.helpers.ImageMaster
 import com.megacrit.cardcrawl.powers.AbstractPower
+import kobting.thepain.helpers.PowerHelper
 import kobting.thepain.patches.PowerTypeEnum
 
-class BloodPower(owner: AbstractCreature) : AbstractPower() {
+class Blood(owner: AbstractCreature) : AbstractPower() {
 
     private var fromThorns: Boolean = false
     private var playerTurn: Boolean = false
+
+    companion object {
+
+        @JvmStatic
+        var id = "thepain:Blood"
+
+        private val powerStrings = CardCrawlGame.languagePack.getPowerStrings(id)
+        val NAME = powerStrings.NAME
+        val DESCRIPTIONS = powerStrings.DESCRIPTIONS
+    }
 
     init {
         this.owner = owner
@@ -22,9 +33,10 @@ class BloodPower(owner: AbstractCreature) : AbstractPower() {
         this.ID = id
         this.name = NAME
         this.description = DESCRIPTIONS[0]
-        this.img = ImageMaster.loadImage("kobting/thepain/images/powers/blood.png")
+        this.img = ImageMaster.loadImage(PowerHelper.getImagePath(id))
         playerTurn = true
         fromThorns = false
+        this.priority = 99
     }
 
     override fun atEndOfTurn(isPlayer: Boolean) {
@@ -64,13 +76,4 @@ class BloodPower(owner: AbstractCreature) : AbstractPower() {
         }
     }
 
-    companion object {
-
-        @JvmStatic
-        var id = "thepain:Blood"
-
-        private val powerStrings = CardCrawlGame.languagePack.getPowerStrings(id)
-        val NAME = powerStrings.NAME
-        private val DESCRIPTIONS = powerStrings.DESCRIPTIONS
-    }
 }

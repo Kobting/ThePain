@@ -69,6 +69,10 @@
     "NAME": "Lost",
     "DESCRIPTION": "Discard up to 3 Cards. NL Heal !M! HP for every Card Discarded."
   },
+  "thepain:Relief": {
+    "NAME": "Relief",
+    "DESCRIPTION": "Gain Relief"
+  },
   "thepain:RepairBoot":{
     "NAME": "Repair Boot",
     "DESCRIPTION": "Deal !D! damage. NL Heal !M! HP"

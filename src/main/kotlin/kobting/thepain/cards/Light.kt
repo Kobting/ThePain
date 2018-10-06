@@ -23,7 +23,7 @@ class Light : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCard
         return Light()
     }
 
-    override fun canUse(p: AbstractPlayer?, m: AbstractMonster): Boolean {
+    override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {
         this.cantUseMessage = "Must be Discarded."
         return false
     }

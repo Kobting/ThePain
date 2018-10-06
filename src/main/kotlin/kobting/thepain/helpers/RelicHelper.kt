@@ -36,6 +36,5 @@ object RelicHelper : EditRelicsSubscriber{
     private fun initImagePaths(){
         imagePaths[ShatteredGlass::class.java.name] = "shattered_glass.png"
 
-        println("ThePain: All Relic image keys ${imagePaths.keys}")
     }
 }

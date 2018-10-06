@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import kobting.thepain.patches.AbstractCardEnum
-import kobting.thepain.powers.BloodPower
+import kobting.thepain.powers.Blood
 
 class BloodySkewer :
         PainCustomCard(
@@ -48,8 +48,8 @@ class BloodySkewer :
     override fun use(abstractPlayer: AbstractPlayer?, abstractMonster: AbstractMonster?) {
 
         var lostHP = 0
-        if(abstractPlayer!!.hasPower(BloodPower.id)){
-            lostHP = abstractPlayer.getPower(BloodPower.id).amount
+        if(abstractPlayer!!.hasPower(Blood.id)){
+            lostHP = abstractPlayer.getPower(Blood.id).amount
         }
 
         for (i in 0 until lostHP) {
