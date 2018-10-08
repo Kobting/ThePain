@@ -55,16 +55,17 @@ class ThePainMod :
 
     companion object {
 
-        private var logger: Logger? = null
+        @JvmStatic
+        var logger = LogManager.getLogger(ThePainMod::class.java.name)
         private val color = Color(102f, 0f, 0f, 1f)
 
         //Method needed for @SpireInitializer
         @JvmStatic
         fun initialize() {
-            logger = LogManager.getLogger(ThePainMod::class.java.name)
 
 
-            logger!!.log(Level.INFO, "-------------Initializing: " + AbstractCardEnum.THE_PAIN_PURPLE.toString() + "----------------------")
+
+            logger.log(Level.INFO, "-------------Initializing: " + AbstractCardEnum.THE_PAIN_PURPLE.toString() + "----------------------")
 
             BaseMod.addColor(AbstractCardEnum.THE_PAIN_PURPLE, color, color, color, color, color, color, color,
                     "kobting/thepain/images/ui/bg_attack_purple.png", "kobting/thepain/images/ui/bg_skill_purple.png",
@@ -80,7 +81,7 @@ class ThePainMod :
             ThePainMod()
 
 
-            logger!!.log(Level.INFO, "-------------Finished Initializing: " + AbstractCardEnum.THE_PAIN_PURPLE.toString() + "----------------------")
+            logger.log(Level.INFO, "-------------Finished Initializing: " + AbstractCardEnum.THE_PAIN_PURPLE.toString() + "----------------------")
 
 
         }

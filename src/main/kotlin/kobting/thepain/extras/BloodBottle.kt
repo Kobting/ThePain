@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.helpers.FontHelper
 import com.megacrit.cardcrawl.helpers.TipHelper
 import com.megacrit.cardcrawl.helpers.input.InputHelper
 import kobting.thepain.ThePainMod
-import kobting.thepain.patches.CharacterPatches
 import kobting.thepain.patches.JCharacterPatches
 
 class BloodBottle(texture: Texture) : BloodBottleOnSelfDamage, ClickableUIElement(texture, 0f,0f, 128f, 128f) {

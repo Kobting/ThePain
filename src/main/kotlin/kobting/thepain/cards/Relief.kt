@@ -17,7 +17,7 @@ class Relief : PainCustomCard(ID,COST,CardType.POWER, AbstractCardEnum.THE_PAIN_
     }
 
     override fun use(abstractPlayer: AbstractPlayer?, abstractMonster: AbstractMonster?) {
-        AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(abstractPlayer, abstractPlayer, kobting.thepain.powers.Relief(abstractPlayer as AbstractCreature)))
+        AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(abstractPlayer, abstractPlayer, kobting.thepain.powers.Relief(abstractPlayer as AbstractCreature, 0)))
     }
 
     override fun upgrade() {
