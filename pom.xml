@@ -43,6 +43,12 @@
             <version>${kotlin.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-reflect</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <properties>
@@ -69,8 +75,8 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>src/main/java</source>
                                 <source>src/main/kotlin</source>
+                                <source>src/main/java</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -145,14 +151,22 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>compile</id>
+                        <id>default-compile</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>default-testCompile</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>java-compile</id>
                         <phase>compile</phase>
                         <goals>
                             <goal>compile</goal>
                         </goals>
                     </execution>
                     <execution>
-                        <id>testCompile</id>
+                        <id>java-test-compile</id>
                         <phase>test-compile</phase>
                         <goals>
                             <goal>testCompile</goal>

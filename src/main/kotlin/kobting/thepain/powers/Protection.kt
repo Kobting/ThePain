@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster
 import com.megacrit.cardcrawl.powers.AbstractPower
 import kobting.thepain.helpers.PowerHelper
 import kobting.thepain.helpers.RelicHelper
+import kobting.thepain.patches.JCharacterPatches
 
 class Protection(owner: AbstractCreature, amount: Int) : AbstractPower() {
 
@@ -38,11 +39,14 @@ class Protection(owner: AbstractCreature, amount: Int) : AbstractPower() {
     override fun atEndOfTurn(isPlayer: Boolean) {
         if (isPlayer) {
             val player = AbstractDungeon.player
-            if(player.hasPower(Blood.id)){
-                AbstractDungeon.actionManager.addToTop(HealAction(this.owner, this.owner, player.getPower(Blood.id).amount))
-                flash()
-            }
+            val bloodCount = JCharacterPatches.bloodBottle_f.get(player).bloodCount
+            AbstractDungeon.actionManager.addToTop(HealAction(this.owner, this.owner, bloodCount))
+            flash()
         }
+        decrement()
+    }
+
+    private fun decrement(){
         val player = AbstractDungeon.player
         val power = player.getPower(id)
         if(power.amount <= 0){

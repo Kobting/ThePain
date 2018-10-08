@@ -3,14 +3,14 @@
     "NAME": "Shattered Glass",
     "FLAVOR" : "None yet",
     "DESCRIPTIONS" : [
-      "Deal damage equal to #b2 times the stacks of blood you have to all enemies at the end of your turn."
+      "Deal damage to all enemies at the end of your turn equal to #b2 times the charges of blood you have."
     ]
   },
   "thepain:BloodBag": {
     "NAME": "Blood Bag",
     "FLAVOR": "Tastes like metal",
     "DESCRIPTIONS" : [
-      "Start each combat with #b3 stacks of blood"
+      "Start each combat with #b3 charges of blood"
     ]
   }
 }

@@ -33,13 +33,14 @@ class Relief(owner: AbstractCreature) : AbstractPower(){
 
     }
 
-    override fun atStartOfTurn() {
-        val player = AbstractDungeon.player
-        AbstractDungeon.actionManager.addToBottom(DamageAction(player, DamageInfo(player, 2, DamageInfo.DamageType.HP_LOSS)))
-    }
-
     override fun atEndOfTurn(isPlayer: Boolean) {
         val player = AbstractDungeon.player
         AbstractDungeon.actionManager.addToBottom(HealAction(player, player, 2))
+    }
+
+    override fun atStartOfTurn() {
+        val player = AbstractDungeon.player
+        println("ThePain: Relief endofturn damage")
+        AbstractDungeon.actionManager.addToBottom(DamageAction(player, DamageInfo(player, 2, DamageInfo.DamageType.HP_LOSS)))
     }
 }

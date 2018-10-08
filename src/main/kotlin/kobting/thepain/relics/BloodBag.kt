@@ -1,10 +1,11 @@
 package kobting.thepain.relics
 
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.relics.AbstractRelic
-import kobting.thepain.powers.Blood
+import kobting.thepain.actions.ModifyBloodChargesAction
+import kobting.thepain.extras.BloodBottle
+import kobting.thepain.patches.JCharacterPatches
 
 class BloodBag : PainCustomRelic(ID, AbstractRelic.RelicTier.UNCOMMON, AbstractRelic.LandingSound.MAGICAL) {
 
@@ -18,14 +19,27 @@ class BloodBag : PainCustomRelic(ID, AbstractRelic.RelicTier.UNCOMMON, AbstractR
         return DESCRIPTIONS[0]
     }
 
-    override fun atBattleStart() {
-        if(AbstractDungeon.player.hasPower(Blood.id)){
-            AbstractDungeon.player.getPower(Blood.id).stackPower(3)
-        } else {
-            val player = AbstractDungeon.player
-            val power = Blood(AbstractDungeon.player)
-            power.amount += 3
-            AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(player,player,power))
+    override fun onEquip() {
+        super.onEquip()
+        val player = AbstractDungeon.player
+        val charges = JCharacterPatches.bloodBottle_f.get(player).bloodCount
+        AbstractDungeon.actionManager.addToNextCombat(ModifyBloodChargesAction(charges + 3))
+
+    }
+
+    override fun update() {
+        super.update()
+        if(AbstractDungeon.getCurrRoom().isBattleOver) {
+
         }
+    }
+
+
+
+    override fun atBattleStart() {
+        println("ThePain: Adding 3 to blood charges.")
+        val player = AbstractDungeon.player
+        val charges = JCharacterPatches.bloodBottle_f.get(player).bloodCount
+        AbstractDungeon.actionManager.addToTop(ModifyBloodChargesAction(charges + 3))
     }
 }

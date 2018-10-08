@@ -2,7 +2,7 @@
   "thepain:Protection": {
     "NAME":"Protection",
     "DESCRIPTIONS": [
-      "Heal for all self damage taken this turn."
+      "Heal for the number of stacks of blood you have at the end of your turn."
     ]
   },
   "thepain:Blood": {
@@ -14,7 +14,7 @@
   "thepain:Relief": {
     "NAME": "Relief",
     "DESCRIPTIONS": [
-      "Lose #b2 HP at the start of your turn. NL Heal #b2 HP at the start of your turn."
+      "Lose #b2 HP at the start of your turn. NL Heal #b2 HP at the end of your turn."
     ]
   }
 }

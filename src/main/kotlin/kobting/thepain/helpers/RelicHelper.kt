@@ -9,6 +9,7 @@ import kobting.thepain.relics.ShatteredGlass
 object RelicHelper : EditRelicsSubscriber{
 
     private var imagePaths = ImageMap("kobting.thepain.relics.", "kobting/thepain/images/relics/", "thepain:")
+    private var outlineImagePaths = ImageMap("kobting.thepain.relics.", "kobting/thepain/images/relics/", "thepain:")
     private var DEFAULT_IMAGE_NAME = "arcanosphere.png"
     init {
         BaseMod.subscribe(this)
@@ -33,8 +34,13 @@ object RelicHelper : EditRelicsSubscriber{
         return imagePaths.getOrDefault(ID, DEFAULT_IMAGE_NAME)
     }
 
+    fun getOutlineImagePath(ID: String) : String? {
+        return outlineImagePaths[ID]
+    }
+
     private fun initImagePaths(){
         imagePaths[ShatteredGlass::class.java.name] = "shattered_glass.png"
+        outlineImagePaths[ShatteredGlass::class.java.name] = "outline-shattered_glass.png"
 
     }
 }

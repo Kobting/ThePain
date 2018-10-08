@@ -28,7 +28,7 @@ class Dark : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCardE
 
     }
 
-    override fun canUse(p: AbstractPlayer?, m: AbstractMonster): Boolean {
+    override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {
         this.cantUseMessage = "Must be Discarded."
         return false
     }

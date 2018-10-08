@@ -24,7 +24,7 @@ abstract class PainCustomCard(ID: String, cost: Int, type: AbstractCard.CardType
         this.name = cardStrings?.NAME ?: "Error: No Name"
         this.initializeTitle()
 
-        this.rawDescription = cardStrings?.DESCRIPTION ?: "Error: No Description"
+        this.rawDescription = cardStrings?.DESCRIPTION ?: "Error: No Description. NL You didn't add this card to card strings."
         this.initializeDescription()
 
         this.textureImg = CardHelper.getImagePath(ID)

@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import kobting.thepain.patches.AbstractCardEnum
-import kobting.thepain.powers.Blood
+import kobting.thepain.patches.JCharacterPatches
 
 class BloodySkewer :
         PainCustomCard(
@@ -24,8 +24,8 @@ class BloodySkewer :
         val ID = "thepain:BloodySkewer"
 
         private const val COST = 2
-        private const val DMG_AMT = 1
-        private const val UPGRADE_DMG_AMT = 1
+        private const val DMG_AMT = 3
+        private const val UPGRADE_DMG_AMT = 2
     }
 
     init {
@@ -47,10 +47,7 @@ class BloodySkewer :
 
     override fun use(abstractPlayer: AbstractPlayer?, abstractMonster: AbstractMonster?) {
 
-        var lostHP = 0
-        if(abstractPlayer!!.hasPower(Blood.id)){
-            lostHP = abstractPlayer.getPower(Blood.id).amount
-        }
+        var lostHP = JCharacterPatches.bloodBottle_f.get(abstractPlayer).bloodCount
 
         for (i in 0 until lostHP) {
             AbstractDungeon.actionManager.addToBottom(DamageAction(abstractMonster, DamageInfo(abstractPlayer, this.damage, DamageInfo.DamageType.NORMAL)))

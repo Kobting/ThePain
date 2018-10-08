@@ -1,6 +1,5 @@
 package kobting.thepain.helpers
 
-import kobting.thepain.powers.Blood
 import kobting.thepain.powers.Protection
 
 object PowerHelper {
@@ -13,7 +12,6 @@ object PowerHelper {
     }
 
     private fun initImagePaths() {
-        imagePaths[Blood::class.java.name] = "blood.png"
         imagePaths[Protection::class.java.name] = "protection.png"
     }
 

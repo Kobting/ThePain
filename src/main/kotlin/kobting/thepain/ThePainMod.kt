@@ -3,22 +3,18 @@ package kobting.thepain
 import basemod.BaseMod
 import basemod.interfaces.*
 import com.badlogic.gdx.Gdx
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.localization.*
-import com.megacrit.cardcrawl.rooms.AbstractRoom
 import com.badlogic.gdx.graphics.Color
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import kobting.thepain.character.CharacterPain
+import kobting.thepain.extras.BloodBottleOnSelfDamage
 import kobting.thepain.helpers.CardHelper
 import kobting.thepain.helpers.RelicHelper
 import kobting.thepain.patches.AbstractCardEnum
+import kobting.thepain.patches.CharacterPatches
 import kobting.thepain.patches.ThePainCharacterEnum
-import kobting.thepain.powers.Blood
 import kobting.thepain.powers.Relief
-import kobting.thepain.relics.BloodBag
-import kobting.thepain.relics.ShatteredGlass
 import org.apache.logging.log4j.Level
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
@@ -27,9 +23,9 @@ import java.nio.charset.StandardCharsets
 
 
 @SpireInitializer
-class ThePainInitializer :
+class ThePainMod :
         EditStringsSubscriber, EditCharactersSubscriber,
-        EditKeywordsSubscriber, OnStartBattleSubscriber {
+        EditKeywordsSubscriber {
 
 
     init {
@@ -57,16 +53,6 @@ class ThePainInitializer :
         BaseMod.addKeyword(relief, CardCrawlGame.languagePack.getPowerStrings(Relief.id).DESCRIPTIONS[0])
     }
 
-
-    override fun receiveOnBattleStart(abstractRoom: AbstractRoom) {
-        val player = AbstractDungeon.player
-        //Don't want shattered glass relic to be useless on other characters.
-        if(player.hasRelic(BloodBag.ID)) {}
-        else if (player is CharacterPain || player.hasRelic(ShatteredGlass.ID)) {
-            AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(player, player, Blood(player)))
-        }
-    }
-
     companion object {
 
         private var logger: Logger? = null
@@ -75,7 +61,7 @@ class ThePainInitializer :
         //Method needed for @SpireInitializer
         @JvmStatic
         fun initialize() {
-            logger = LogManager.getLogger(ThePainInitializer::class.java.name)
+            logger = LogManager.getLogger(ThePainMod::class.java.name)
 
 
             logger!!.log(Level.INFO, "-------------Initializing: " + AbstractCardEnum.THE_PAIN_PURPLE.toString() + "----------------------")
@@ -91,13 +77,19 @@ class ThePainInitializer :
             CardHelper.getImagePath("")
             RelicHelper.getImagePath("")
 
-            ThePainInitializer()
+            ThePainMod()
 
 
             logger!!.log(Level.INFO, "-------------Finished Initializing: " + AbstractCardEnum.THE_PAIN_PURPLE.toString() + "----------------------")
 
 
         }
+
+        @JvmStatic
+        fun subscribeToOnSelfDamage(subscriber: BloodBottleOnSelfDamage){
+            CharacterPatches.subscribeToOnSelfDamage(subscriber)
+        }
+
 
     }
 }

@@ -1,5 +1,6 @@
 package kobting.thepain.cards
 
+import basemod.helpers.BaseModCardTags
 import com.megacrit.cardcrawl.actions.common.GainBlockAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
@@ -11,6 +12,7 @@ class Defend_Pain : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, Abstra
     init {
         this.baseBlock = BLOCK_AMT
         this.block = this.baseBlock
+        this.tags.add(BaseModCardTags.BASIC_DEFEND)
     }
 
     override fun upgrade() {
@@ -27,6 +29,7 @@ class Defend_Pain : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, Abstra
     override fun use(abstractPlayer: AbstractPlayer?, abstractMonster: AbstractMonster?) {
         AbstractDungeon.actionManager.addToBottom(GainBlockAction(abstractPlayer, abstractPlayer, this.block))
     }
+
 
     companion object {
 

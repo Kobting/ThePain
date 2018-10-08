@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import kobting.thepain.patches.AbstractCardEnum
-import kobting.thepain.powers.Blood
+import kobting.thepain.patches.JCharacterPatches
 
 class DoubleTrouble :
         PainCustomCard(
@@ -30,10 +30,7 @@ class DoubleTrouble :
         this.magicNumber = this.baseMagicNumber
     }
     override fun use(abstractPlayer: AbstractPlayer?, abstractMonster: AbstractMonster?) {
-        if(abstractPlayer!!.hasPower(Blood.id)) {
-            abstractPlayer.getPower(Blood.id).amount *= 2
-            abstractPlayer.getPower(Blood.id).flash()
-        }
+        JCharacterPatches.bloodBottle_f.get(abstractPlayer).bloodCount *= 2
     }
 
     override fun upgrade() {

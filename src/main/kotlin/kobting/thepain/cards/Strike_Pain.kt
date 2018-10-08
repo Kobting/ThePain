@@ -1,5 +1,6 @@
 package kobting.thepain.cards
 
+import basemod.helpers.BaseModCardTags
 import com.megacrit.cardcrawl.actions.common.DamageAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.DamageInfo
@@ -12,6 +13,8 @@ class Strike_Pain : PainCustomCard(ID, COST, AbstractCard.CardType.ATTACK, Abstr
     init {
         this.baseDamage = ATTACK_DMG
         this.damage = this.baseDamage
+        this.tags.add(CardTags.STRIKE)
+        this.tags.add(BaseModCardTags.BASIC_STRIKE)
     }
 
     override fun upgrade() {
