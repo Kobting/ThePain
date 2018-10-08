@@ -13,13 +13,10 @@ class ModifyBloodChargesAction(amount: Int) : AbstractGameAction() {
         this.duration = DURATION
     }
 
-    //TODO: Fix so damage can be done at end of turn
     override fun update() {
-
-        JCharacterPatches.bloodBottle_f.get(AbstractDungeon.player).bloodCount = this.amount
-        this.isDone = true
-        return
-
-        //this.tickDuration()
+        if(this.duration == DURATION) {
+            JCharacterPatches.bloodBottle_f.get(AbstractDungeon.player).bloodCount = this.amount
+        }
+        this.tickDuration()
     }
 }
