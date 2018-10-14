@@ -9,7 +9,7 @@ class LibraryTypeEnum {
 
         @JvmStatic
         @SpireEnum
-        var THE_PAIN_PURPLE: CardLibrary.LibraryType? = null
+        var THE_PAIN_MAROON: CardLibrary.LibraryType? = null
 
     }
 

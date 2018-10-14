@@ -2,13 +2,10 @@ package kobting.thepain.helpers
 
 import basemod.BaseMod
 import basemod.interfaces.EditCardsSubscriber
-import com.sun.media.jfxmedia.logging.Logger
 import kobting.thepain.cards.*
 
-import java.util.HashMap
-
 object CardHelper : EditCardsSubscriber{
-    private var imagePaths = ImageMap("kobting.thepain.cards.", "kobting/thepain/images/cards/", "thepain:")
+    private var imagePaths = ImageMap("kobting/thepain/images/cards/")
     private val DEFAULT_IMAGE_NAME = "beta_purple.png"
 
     init {
@@ -22,7 +19,7 @@ object CardHelper : EditCardsSubscriber{
         //22 cards total in reward pool
         //15 skills
         //6  attacks
-        //1  powers
+        //2  powers
 
         //Basic Starter Cards 3
         BaseMod.addCard(Strike_Pain())           //Attack
@@ -38,14 +35,15 @@ object CardHelper : EditCardsSubscriber{
         BaseMod.addCard(RepairBoot())            //Attack
         BaseMod.addCard(Dark())                  //Skill
 
-        //UnCommon Cards 7
-        BaseMod.addCard(Bleed())                 //Skill
+        //UnCommon Cards 8
+        BaseMod.addCard(Gulp())                 //Skill
         BaseMod.addCard(Sacrifice())             //Skill
         BaseMod.addCard(Lost())                  //Skill
         BaseMod.addCard(Light())                 //Skill
         BaseMod.addCard(Sad())                   //Skill
         BaseMod.addCard(BloodySkewer())          //Attack
         BaseMod.addCard(Relief())                //Power
+        BaseMod.addCard(Bleed())                 //Power
 
         //Rare Cards 4
         BaseMod.addCard(DropOfBlood())           //Skill
@@ -62,9 +60,9 @@ object CardHelper : EditCardsSubscriber{
         println("ThePain: Creating Card Images")
         //There's probably a better way to do this.
         //Requires all IDs to match their class name.
-        imagePaths.put(Bleed::class.java.name,"bleed.png")
-        imagePaths.put(Defend_Pain::class.java.name,"defend_purple.png")
-        imagePaths.put(Strike_Pain::class.java.name,"strike_purple.png")
+        imagePaths.put(Bleed.ID,"bleed.png")
+        imagePaths.put(Defend_Pain.ID,"defend_purple.png")
+        imagePaths.put(Strike_Pain.ID,"strike_purple.png")
 
     }
 

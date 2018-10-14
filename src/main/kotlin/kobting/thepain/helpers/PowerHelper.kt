@@ -4,7 +4,7 @@ import kobting.thepain.powers.Protection
 
 object PowerHelper {
 
-    private var imagePaths = ImageMap("kobting.thepain.powers.", "kobting/thepain/images/powers/", "thepain:")
+    private var imagePaths = ImageMap("kobting/thepain/images/powers/")
     private val DEFAULT_IMAGE_NAME = "protection.png"
 
     init {
@@ -12,7 +12,7 @@ object PowerHelper {
     }
 
     private fun initImagePaths() {
-        imagePaths[Protection::class.java.name] = "protection.png"
+        imagePaths[Protection.id] = "protection.png"
     }
 
 

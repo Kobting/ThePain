@@ -13,7 +13,7 @@ class Bandaid :
                 ID,
                 COST,
                 AbstractCard.CardType.SKILL,
-                AbstractCardEnum.THE_PAIN_PURPLE,
+                AbstractCardEnum.THE_PAIN_MAROON,
                 AbstractCard.CardRarity.COMMON,
                 AbstractCard.CardTarget.SELF)
 {

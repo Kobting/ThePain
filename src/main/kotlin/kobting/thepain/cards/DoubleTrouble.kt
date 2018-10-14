@@ -11,7 +11,7 @@ class DoubleTrouble :
                 ID,
                 COST,
                 AbstractCard.CardType.SKILL,
-                AbstractCardEnum.THE_PAIN_PURPLE,
+                AbstractCardEnum.THE_PAIN_MAROON,
                 AbstractCard.CardRarity.RARE,
                 AbstractCard.CardTarget.SELF)
 {
@@ -21,7 +21,7 @@ class DoubleTrouble :
         @JvmStatic
         val ID = "thepain:DoubleTrouble"
 
-        private const val COST = 3
+        private const val COST = 1
         private const val DOUBLE_AMT = 2
     }
 
@@ -36,7 +36,7 @@ class DoubleTrouble :
     override fun upgrade() {
         if(!this.upgraded){
             this.upgradeName()
-            this.upgradeBaseCost(2)
+            this.upgradeBaseCost(0)
         }
     }
 

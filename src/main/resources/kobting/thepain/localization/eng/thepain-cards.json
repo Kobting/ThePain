@@ -9,8 +9,7 @@
   },
   "thepain:Bleed": {
     "NAME": "Bleed",
-    "DESCRIPTION": "Lose !M! HP. NL Gain [R]",
-    "UPGRADE_DESCRIPTION": "Lose !M! HP. NL Gain [R] [R]"
+    "DESCRIPTION": "Gain Bleed."
   },
   "thepain:BloodClot": {
     "NAME": "Blood Clot",
@@ -44,6 +43,10 @@
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block."
   },
+  "thepain:DoubleTrouble":{
+    "NAME": "Double Trouble",
+    "DESCRIPTION": "Double your charges of blood."
+  },
   "thepain:DropOfBlood":{
     "NAME": "Drop of Blood",
     "DESCRIPTION": "Heal !M! HP. NL Ethereal. NL Exhaust."
@@ -51,6 +54,11 @@
   "thepain:Flatten":{
     "NAME": "Flatten",
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! X gold of Damage given."
+  },
+  "thepain:Gulp": {
+    "NAME": "Gulp",
+    "DESCRIPTION": "Lose !M! HP. NL Gain [R]",
+    "UPGRADE_DESCRIPTION": "Lose !M! HP. NL Gain [R] [R]"
   },
   "thepain:Happy": {
     "NAME": "Happy",

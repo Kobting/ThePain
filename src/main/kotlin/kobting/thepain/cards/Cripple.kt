@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.powers.WeakPower
 import kobting.thepain.patches.AbstractCardEnum
 
-class Cripple : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCardEnum.THE_PAIN_PURPLE, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF_AND_ENEMY) {
+class Cripple : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCardEnum.THE_PAIN_MAROON, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF_AND_ENEMY) {
 
     companion object {
 

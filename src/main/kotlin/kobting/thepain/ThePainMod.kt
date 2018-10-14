@@ -14,10 +14,11 @@ import kobting.thepain.helpers.RelicHelper
 import kobting.thepain.patches.AbstractCardEnum
 import kobting.thepain.patches.CharacterPatches
 import kobting.thepain.patches.ThePainCharacterEnum
+import kobting.thepain.powers.Bleed
+import kobting.thepain.powers.Protection
 import kobting.thepain.powers.Relief
 import org.apache.logging.log4j.Level
 import org.apache.logging.log4j.LogManager
-import org.apache.logging.log4j.Logger
 
 import java.nio.charset.StandardCharsets
 
@@ -40,17 +41,24 @@ class ThePainMod :
     }
 
     override fun receiveEditCharacters() {
-        BaseMod.addCharacter(CharacterPain::class.java, "The Pain", "The Pain Class", AbstractCardEnum.THE_PAIN_PURPLE,
-                "The Pain", "kobting/thepain/images/characters/select.png", "kobting/thepain/images/characters/portrait.png", ThePainCharacterEnum.THE_PAIN)
+        BaseMod.addCharacter(
+                CharacterPain("The Pain"),
+                AbstractCardEnum.THE_PAIN_MAROON,
+                "kobting/thepain/images/characters/select.png",
+                "kobting/thepain/images/characters/portrait.png",
+                ThePainCharacterEnum.THE_PAIN)
     }
 
     override fun receiveEditKeywords() {
 
         val protection = arrayOf("Protection", "protection")
-        BaseMod.addKeyword(protection, "Heal for all HP lost this turn at the end of the turn.")
+        BaseMod.addKeyword(protection, CardCrawlGame.languagePack.getPowerStrings(Protection.id).DESCRIPTIONS[0])
 
         val relief = arrayOf("Relief", "relief")
         BaseMod.addKeyword(relief, CardCrawlGame.languagePack.getPowerStrings(Relief.id).DESCRIPTIONS[0])
+
+        val bleed = arrayOf("Bleed", "bleed")
+        BaseMod.addKeyword(bleed, CardCrawlGame.languagePack.getPowerStrings(Bleed.id).DESCRIPTIONS[0])
     }
 
     companion object {
@@ -64,10 +72,9 @@ class ThePainMod :
         fun initialize() {
 
 
+            logger.log(Level.INFO, "-------------Initializing: " + AbstractCardEnum.THE_PAIN_MAROON.toString() + "----------------------")
 
-            logger.log(Level.INFO, "-------------Initializing: " + AbstractCardEnum.THE_PAIN_PURPLE.toString() + "----------------------")
-
-            BaseMod.addColor(AbstractCardEnum.THE_PAIN_PURPLE, color, color, color, color, color, color, color,
+            BaseMod.addColor(AbstractCardEnum.THE_PAIN_MAROON, color, color, color, color, color, color, color,
                     "kobting/thepain/images/ui/bg_attack_purple.png", "kobting/thepain/images/ui/bg_skill_purple.png",
                     "kobting/thepain/images/ui/bg_power_purple.png", "kobting/thepain/images/ui/card_purple_orb.png",
                     "kobting/thepain/images/ui/bg_attack_purple_p.png", "kobting/thepain/images/ui/bg_skill_purple_p.png",
@@ -81,13 +88,13 @@ class ThePainMod :
             ThePainMod()
 
 
-            logger.log(Level.INFO, "-------------Finished Initializing: " + AbstractCardEnum.THE_PAIN_PURPLE.toString() + "----------------------")
+            logger.log(Level.INFO, "-------------Finished Initializing: " + AbstractCardEnum.THE_PAIN_MAROON.toString() + "----------------------")
 
 
         }
 
         @JvmStatic
-        fun subscribeToOnSelfDamage(subscriber: BloodBottleOnSelfDamage){
+        fun subscribeToOnSelfDamage(subscriber: BloodBottleOnSelfDamage) {
             CharacterPatches.subscribeToOnSelfDamage(subscriber)
         }
 

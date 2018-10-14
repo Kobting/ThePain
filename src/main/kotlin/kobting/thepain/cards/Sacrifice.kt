@@ -9,10 +9,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import kobting.thepain.patches.AbstractCardEnum
 
-class Sacrifice : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCardEnum.THE_PAIN_PURPLE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF) {
+class Sacrifice : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCardEnum.THE_PAIN_MAROON, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF) {
     init {
         this.baseMagicNumber = CARD_DRAW_AMT
         this.magicNumber = this.baseMagicNumber
+
     }
 
     override fun upgrade() {
@@ -27,8 +28,9 @@ class Sacrifice : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, Abstract
     }
 
     override fun use(abstractPlayer: AbstractPlayer?, abstractMonster: AbstractMonster?) {
-        AbstractDungeon.actionManager.addToBottom(DamageAction(abstractPlayer, DamageInfo(abstractPlayer, SELF_DMG)))
+        AbstractDungeon.actionManager.addToBottom(DamageAction(abstractPlayer, DamageInfo(abstractPlayer, SELF_DMG, DamageInfo.DamageType.HP_LOSS)))
         AbstractDungeon.actionManager.addToBottom(DrawCardAction(abstractMonster, this.magicNumber))
+
     }
 
     companion object {

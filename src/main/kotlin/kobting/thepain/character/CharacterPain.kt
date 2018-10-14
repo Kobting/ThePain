@@ -1,10 +1,15 @@
 package kobting.thepain.character
 
 import basemod.abstracts.CustomPlayer
+import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.math.MathUtils
+import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.EnergyManager
 import com.megacrit.cardcrawl.core.Settings
+import com.megacrit.cardcrawl.helpers.FontHelper
+import com.megacrit.cardcrawl.powers.AbstractPower
 import com.megacrit.cardcrawl.screens.CharSelectInfo
 import kobting.thepain.cards.CutDry
 import kobting.thepain.cards.Defend_Pain
@@ -14,7 +19,7 @@ import kobting.thepain.relics.ShatteredGlass
 
 import java.util.ArrayList
 
-class CharacterPain(name: String, setClass: AbstractPlayer.PlayerClass) : CustomPlayer(name, setClass, orbs, orbVfx, null as String?, null as String?) {
+class CharacterPain(name: String) : CustomPlayer(name, ThePainCharacterEnum.THE_PAIN, orbs, orbVfx, null as String?, null as String?) {
 
     companion object {
 
@@ -33,55 +38,8 @@ class CharacterPain(name: String, setClass: AbstractPlayer.PlayerClass) : Custom
 
         private const val orbVfx = "kobting/thepain/images/characters/orb/vfx.png"
 
-        @JvmStatic
-        fun getLoadout(): CharSelectInfo
-            {
-                return CharSelectInfo(
-                        "The Pain",
-                        "Use HP as a resource for killing",
-                        80,
-                        80,
-                        0,
-                        99,
-                        5,
-                        ThePainCharacterEnum.THE_PAIN,
-                        getStartingRelics(),
-                        getStartingDeck(),
-                        false)
-
-            }
-
-        @JvmStatic
-        fun getStartingDeck(): ArrayList<String>
-            {
-                val deck = ArrayList<String>()
-
-                deck.add(Strike_Pain.ID)
-                deck.add(Strike_Pain.ID)
-                deck.add(Strike_Pain.ID)
-                deck.add(Strike_Pain.ID)
-                deck.add(Strike_Pain.ID)
-                deck.add(Defend_Pain.ID)
-                deck.add(Defend_Pain.ID)
-                deck.add(Defend_Pain.ID)
-                deck.add(Defend_Pain.ID)
-                deck.add(Defend_Pain.ID)
-                deck.add(CutDry.ID)
-
-
-                return deck
-            }
-
-        @JvmStatic
-        fun getStartingRelics(): ArrayList<String>
-            {
-                val relics = ArrayList<String>()
-
-                relics.add(ShatteredGlass.ID)
-
-                return relics
-            }
     }
+    
 
     init {
 
@@ -100,6 +58,83 @@ class CharacterPain(name: String, setClass: AbstractPlayer.PlayerClass) : Custom
 
     }
 
+    override fun getStartingRelics(): ArrayList<String> {
+        val relics = ArrayList<String>()
+
+        relics.add(ShatteredGlass.ID)
+
+        return relics    }
+
+    override fun getLoadout(): CharSelectInfo {
+        return CharSelectInfo(
+                "The Pain",
+                "Use HP as a resource for killing",
+                80,
+                80,
+                0,
+                99,
+                5,
+                this,
+                getStartingRelics(),
+                getStartingDeck(),
+                false)    }
+
+    override fun getCardColor(): Color {
+        return Color.MAROON
+    }
+
+    override fun getEnergyNumFont(): BitmapFont {
+        return FontHelper.energyNumFontRed
+    }
+
+    override fun getAscensionMaxHPLoss(): Int {
+        return 7
+    }
+
+    override fun getCustomModeCharacterButtonSoundKey(): String {
+        return "ATTACK_FIRE"
+    }
+
+    override fun getStartingDeck(): ArrayList<String> {
+        val deck = ArrayList<String>()
+
+        deck.add(Strike_Pain.ID)
+        deck.add(Strike_Pain.ID)
+        deck.add(Strike_Pain.ID)
+        deck.add(Strike_Pain.ID)
+        deck.add(Strike_Pain.ID)
+        deck.add(Defend_Pain.ID)
+        deck.add(Defend_Pain.ID)
+        deck.add(Defend_Pain.ID)
+        deck.add(Defend_Pain.ID)
+        deck.add(Defend_Pain.ID)
+        deck.add(CutDry.ID)
+
+
+        return deck    }
+
+    override fun doCharSelectScreenSelectEffect() {
+    }
+
+    override fun getStartCardForEvent(): AbstractCard {
+        return CutDry()
+    }
+
+    override fun getTitle(playerClass: PlayerClass?): String {
+        return "The Pain"
+    }
+
+    override fun newInstance(): AbstractPlayer {
+        return CharacterPain("The Pain");
+    }
+
+    override fun getLocalizedCharacterName(): String {
+        return "The Pain"
+    }
+
+    override fun getCardTrailColor(): Color {
+        return Color.MAROON
+    }
 
 
 }

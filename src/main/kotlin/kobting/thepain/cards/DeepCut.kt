@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import kobting.thepain.patches.AbstractCardEnum
 import kobting.thepain.powers.Protection
 
-class DeepCut : PainCustomCard(ID, COST, AbstractCard.CardType.ATTACK, AbstractCardEnum.THE_PAIN_PURPLE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF_AND_ENEMY) {
+class DeepCut : PainCustomCard(ID, COST, AbstractCard.CardType.ATTACK, AbstractCardEnum.THE_PAIN_MAROON, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF_AND_ENEMY) {
     init {
         this.damage = DAMAGE_AMT
         this.baseDamage = this.damage

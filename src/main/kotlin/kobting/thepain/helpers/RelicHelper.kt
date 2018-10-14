@@ -8,8 +8,8 @@ import kobting.thepain.relics.ShatteredGlass
 
 object RelicHelper : EditRelicsSubscriber{
 
-    private var imagePaths = ImageMap("kobting.thepain.relics.", "kobting/thepain/images/relics/", "thepain:")
-    private var outlineImagePaths = ImageMap("kobting.thepain.relics.", "kobting/thepain/images/relics/", "thepain:")
+    private var imagePaths = ImageMap( "kobting/thepain/images/relics/")
+    private var outlineImagePaths = ImageMap("kobting/thepain/images/relics/")
     private var DEFAULT_IMAGE_NAME = "arcanosphere.png"
     init {
         BaseMod.subscribe(this)
@@ -19,13 +19,13 @@ object RelicHelper : EditRelicsSubscriber{
 
         initImagePaths()
         //Starter relic
-        BaseMod.addRelicToCustomPool(ShatteredGlass(), AbstractCardEnum.THE_PAIN_PURPLE)
+        BaseMod.addRelicToCustomPool(ShatteredGlass(), AbstractCardEnum.THE_PAIN_MAROON)
 
         //Common relics
 
 
         //Uncommon relics
-        BaseMod.addRelicToCustomPool(BloodBag(), AbstractCardEnum.THE_PAIN_PURPLE)
+        BaseMod.addRelicToCustomPool(BloodBag(), AbstractCardEnum.THE_PAIN_MAROON)
     }
 
 
@@ -39,8 +39,8 @@ object RelicHelper : EditRelicsSubscriber{
     }
 
     private fun initImagePaths(){
-        imagePaths[ShatteredGlass::class.java.name] = "shattered_glass.png"
-        outlineImagePaths[ShatteredGlass::class.java.name] = "outline-shattered_glass.png"
+        imagePaths[ShatteredGlass.ID] = "shattered_glass.png"
+        outlineImagePaths[ShatteredGlass.ID] = "outline-shattered_glass.png"
 
     }
 }

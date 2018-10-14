@@ -27,14 +27,6 @@ class BloodBag : PainCustomRelic(ID, AbstractRelic.RelicTier.UNCOMMON, AbstractR
 
     }
 
-    override fun update() {
-        super.update()
-        if(AbstractDungeon.getCurrRoom().isBattleOver) {
-
-        }
-    }
-
-
 
     override fun atBattleStart() {
         println("ThePain: Adding 3 to blood charges.")

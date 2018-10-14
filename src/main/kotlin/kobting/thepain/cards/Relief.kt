@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import kobting.thepain.patches.AbstractCardEnum
 
-class Relief : PainCustomCard(ID,COST,CardType.POWER, AbstractCardEnum.THE_PAIN_PURPLE, CardRarity.UNCOMMON, CardTarget.SELF) {
+class Relief : PainCustomCard(ID,COST,CardType.POWER, AbstractCardEnum.THE_PAIN_MAROON, CardRarity.UNCOMMON, CardTarget.SELF) {
 
     companion object {
 

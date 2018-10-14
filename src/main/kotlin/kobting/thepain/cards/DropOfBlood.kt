@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import kobting.thepain.patches.AbstractCardEnum
 
-class DropOfBlood : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCardEnum.THE_PAIN_PURPLE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF) {
+class DropOfBlood : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCardEnum.THE_PAIN_MAROON, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF) {
     init {
         this.baseMagicNumber = HEAL_AMT
         this.magicNumber = this.baseMagicNumber

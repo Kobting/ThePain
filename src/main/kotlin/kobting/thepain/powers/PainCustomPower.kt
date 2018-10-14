@@ -16,7 +16,7 @@ open class PainCustomPower(id: String, owner: AbstractCreature, amount: Int) : A
 
         this.name = powerStrings?.NAME ?: "Error: No Name"
 
-        this.description = powerStrings!!.DESCRIPTIONS[0] ?: arrayOf("Error: No Description. NL You didn't add this power to power strings.")[0]
+        this.description = powerStrings?.DESCRIPTIONS?.get(0) ?: arrayOf("Error: No Description. NL You didn't add this power to power strings.")[0]
 
         this.img = ImageMaster.loadImage(PowerHelper.getImagePath(id))
 

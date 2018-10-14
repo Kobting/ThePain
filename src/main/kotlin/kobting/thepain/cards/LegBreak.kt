@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.powers.WeakPower
 import kobting.thepain.patches.AbstractCardEnum
 
-class LegBreak : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCardEnum.THE_PAIN_PURPLE, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ALL_ENEMY) {
+class LegBreak : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCardEnum.THE_PAIN_MAROON, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ALL_ENEMY) {
     init {
         this.magicNumber = WEAK_AMT
         this.baseMagicNumber = this.magicNumber

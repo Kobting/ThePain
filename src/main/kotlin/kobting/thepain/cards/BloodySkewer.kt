@@ -14,7 +14,7 @@ class BloodySkewer :
                 ID,
                 COST,
                 AbstractCard.CardType.ATTACK,
-                AbstractCardEnum.THE_PAIN_PURPLE,
+                AbstractCardEnum.THE_PAIN_MAROON,
                 AbstractCard.CardRarity.UNCOMMON,
                 AbstractCard.CardTarget.ENEMY)
 {

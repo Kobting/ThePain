@@ -16,5 +16,11 @@
     "DESCRIPTIONS": [
       "Lose #b2 HP at the start of your turn. NL Heal #b2 HP at the end of your turn."
     ]
+  },
+  "thepain:Bleed": {
+    "NAME": "Bleed",
+    "DESCRIPTIONS": [
+      "Lose #b2 HP at the start of your turn. NL Draw #b1 extra card a turn."
+    ]
   }
 }

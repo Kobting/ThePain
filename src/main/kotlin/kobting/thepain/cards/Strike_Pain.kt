@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import kobting.thepain.patches.AbstractCardEnum
 
-class Strike_Pain : PainCustomCard(ID, COST, AbstractCard.CardType.ATTACK, AbstractCardEnum.THE_PAIN_PURPLE, AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.ENEMY) {
+class Strike_Pain : PainCustomCard(ID, COST, AbstractCard.CardType.ATTACK, AbstractCardEnum.THE_PAIN_MAROON, AbstractCard.CardRarity.BASIC, AbstractCard.CardTarget.ENEMY) {
     init {
         this.baseDamage = ATTACK_DMG
         this.damage = this.baseDamage

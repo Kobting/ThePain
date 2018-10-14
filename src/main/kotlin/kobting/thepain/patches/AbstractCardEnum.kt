@@ -8,7 +8,7 @@ class AbstractCardEnum {
     companion object {
         @SpireEnum
         @JvmStatic
-        var THE_PAIN_PURPLE: AbstractCard.CardColor? = null
+        var THE_PAIN_MAROON: AbstractCard.CardColor? = null
     }
 
 }

@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import kobting.thepain.actions.DiscardHealAction
 import kobting.thepain.patches.AbstractCardEnum
 
-class Lost : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCardEnum.THE_PAIN_PURPLE, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF) {
+class Lost : PainCustomCard(ID, COST, AbstractCard.CardType.SKILL, AbstractCardEnum.THE_PAIN_MAROON, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF) {
     init {
         this.magicNumber = HEAL_AMT
         this.baseMagicNumber = this.magicNumber
