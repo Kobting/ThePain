@@ -4,6 +4,7 @@ import basemod.abstracts.CustomPlayer
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.math.MathUtils
+import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.EnergyManager
@@ -14,12 +15,14 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo
 import kobting.thepain.cards.CutDry
 import kobting.thepain.cards.Defend_Pain
 import kobting.thepain.cards.Strike_Pain
+import kobting.thepain.patches.AbstractCardEnum
 import kobting.thepain.patches.ThePainCharacterEnum
 import kobting.thepain.relics.ShatteredGlass
 
 import java.util.ArrayList
 
 class CharacterPain(name: String) : CustomPlayer(name, ThePainCharacterEnum.THE_PAIN, orbs, orbVfx, null as String?, null as String?) {
+
 
     companion object {
 
@@ -47,14 +50,15 @@ class CharacterPain(name: String) : CustomPlayer(name, ThePainCharacterEnum.THE_
         this.dialogY = this.drawY + 220.0f * Settings.scale
 
         initializeClass(null, "images/characters/ironclad/shoulder2.png", "images/characters/ironclad/shoulder.png", "images/characters/ironclad/corpse.png",
-                getLoadout(), 20.0f, -10.0f, 220.0f, 290.0f, EnergyManager(3))
+                loadout, 20.0f, -10.0f, 220.0f, 290.0f, EnergyManager(3))
 
         loadAnimation("images/characters/ironclad/idle/skeleton.atlas", "images/characters/ironclad/idle/skeleton.json", 1.0f)
 
-        val e = this.state.setAnimation(0, "animation", true)
-        e.time = e.endTime * MathUtils.random()
+//        val e = this.state.setAnimation(0, "animation", true)
+//        e.time = e.endTime * MathUtils.random()
 
         initializeStarterRelics(this.chosenClass)
+
 
     }
 
@@ -75,12 +79,12 @@ class CharacterPain(name: String) : CustomPlayer(name, ThePainCharacterEnum.THE_
                 99,
                 5,
                 this,
-                getStartingRelics(),
-                getStartingDeck(),
+                startingRelics,
+                startingDeck,
                 false)    }
 
-    override fun getCardColor(): Color {
-        return Color.MAROON
+    override fun getCardColor(): AbstractCard.CardColor {
+        return AbstractCardEnum.THE_PAIN_MAROON!!
     }
 
     override fun getEnergyNumFont(): BitmapFont {
@@ -134,6 +138,29 @@ class CharacterPain(name: String) : CustomPlayer(name, ThePainCharacterEnum.THE_
 
     override fun getCardTrailColor(): Color {
         return Color.MAROON
+    }
+
+    override fun getCardRenderColor(): Color {
+        return Color.MAROON
+    }
+
+    override fun getSlashAttackColor(): Color {
+        return Color.MAROON
+    }
+
+    override fun getSpireHeartText(): String {
+        return "Bleed! Bleed! Bleeeeeeed!!!"
+    }
+
+    override fun getSpireHeartSlashEffect(): Array<AbstractGameAction.AttackEffect> {
+        return Array(2){
+            AbstractGameAction.AttackEffect.FIRE
+            AbstractGameAction.AttackEffect.BLUNT_LIGHT
+        }
+    }
+
+    override fun getVampireText(): String {
+        return "Umm idk?"
     }
 
 

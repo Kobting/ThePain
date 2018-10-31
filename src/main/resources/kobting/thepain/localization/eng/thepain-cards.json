@@ -65,6 +65,10 @@
     "DESCRIPTION": "Heal !M! HP. NL Add a Sad to the discard pile. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Heal !M! HP. NL Add a Sad+ to the discard pile. NL Exhaust."
   },
+  "thepain:LastResort":{
+    "NAME":"Last Resort",
+    "DESCRIPTION": "Lose all but 1 HP."
+  },
   "thepain:LegBreak":{
     "NAME": "Leg Break",
     "DESCRIPTION": "Apply !M! Weak to all enemies"

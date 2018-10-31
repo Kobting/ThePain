@@ -43,7 +43,6 @@ class ThePainMod :
     override fun receiveEditCharacters() {
         BaseMod.addCharacter(
                 CharacterPain("The Pain"),
-                AbstractCardEnum.THE_PAIN_MAROON,
                 "kobting/thepain/images/characters/select.png",
                 "kobting/thepain/images/characters/portrait.png",
                 ThePainCharacterEnum.THE_PAIN)
@@ -75,13 +74,12 @@ class ThePainMod :
             logger.log(Level.INFO, "-------------Initializing: " + AbstractCardEnum.THE_PAIN_MAROON.toString() + "----------------------")
 
             BaseMod.addColor(AbstractCardEnum.THE_PAIN_MAROON, color, color, color, color, color, color, color,
-                    "kobting/thepain/images/ui/bg_attack_purple.png", "kobting/thepain/images/ui/bg_skill_purple.png",
-                    "kobting/thepain/images/ui/bg_power_purple.png", "kobting/thepain/images/ui/card_purple_orb.png",
-                    "kobting/thepain/images/ui/bg_attack_purple_p.png", "kobting/thepain/images/ui/bg_skill_purple_p.png",
-                    "kobting/thepain/images/ui/bg_power_purple_p.png", "kobting/thepain/images/ui/card_purple_orb_p.png")
+                    "kobting/thepain/images/ui/bg_attack.png", "kobting/thepain/images/ui/bg_skill.png",
+                    "kobting/thepain/images/ui/bg_power.png", "kobting/thepain/images/ui/card_orb_p.png",
+                    "kobting/thepain/images/ui/bg_attack_p.png", "kobting/thepain/images/ui/bg_skill_p.png",
+                    "kobting/thepain/images/ui/bg_power_p.png", "kobting/thepain/images/ui/card_orb.png")
 
 
-            //Possibly make them subscribe to BaseMod?
             CardHelper.getImagePath("")
             RelicHelper.getImagePath("")
 

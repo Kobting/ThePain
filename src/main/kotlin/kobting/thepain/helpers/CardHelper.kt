@@ -16,8 +16,8 @@ object CardHelper : EditCardsSubscriber{
 
         initImagePaths()
         println("ThePain: Adding Cards")
-        //22 cards total in reward pool
-        //15 skills
+        //23 cards total in reward pool
+        //16 skills
         //6  attacks
         //2  powers
 
@@ -26,22 +26,22 @@ object CardHelper : EditCardsSubscriber{
         BaseMod.addCard(Defend_Pain())           //Skill
         BaseMod.addCard(CutDry())                //Skill
 
-        //Common Cards 7
+        //Common Cards 6
         BaseMod.addCard(Cuts())                  //Attack
         BaseMod.addCard(Bandaid())               //Skill
         BaseMod.addCard(Cripple())               //Skill
         BaseMod.addCard(SpikedShield())          //Skill
-        BaseMod.addCard(Flatten())               //Attack
         BaseMod.addCard(RepairBoot())            //Attack
         BaseMod.addCard(Dark())                  //Skill
 
-        //UnCommon Cards 8
-        BaseMod.addCard(Gulp())                 //Skill
+        //UnCommon Cards 9
+        BaseMod.addCard(Gulp())                  //Skill
         BaseMod.addCard(Sacrifice())             //Skill
         BaseMod.addCard(Lost())                  //Skill
         BaseMod.addCard(Light())                 //Skill
         BaseMod.addCard(Sad())                   //Skill
         BaseMod.addCard(BloodySkewer())          //Attack
+        BaseMod.addCard(Flatten())               //Attack
         BaseMod.addCard(Relief())                //Power
         BaseMod.addCard(Bleed())                 //Power
 
@@ -50,6 +50,7 @@ object CardHelper : EditCardsSubscriber{
         BaseMod.addCard(LegBreak())              //Skill
         BaseMod.addCard(DeepCut())               //Attack
         BaseMod.addCard(DoubleTrouble())         //Skill
+        BaseMod.addCard(LastResort())            //Skill
 
         //Other Cards 1
         BaseMod.addCard(Happy())                 //Skill
